@@ -79,7 +79,8 @@ node_modules/
 
 ## 🙏 Credits
 
-- **Frontend UI Design:** Created by my talented sister ✨  
+- **Frontend UI Design:** Created by my talented sister ✨
+- Connect with her on [LinkedIn](https://eg.linkedin.com/in/shefaa-mohd-90a6172a7) 💛
   Huge thanks to her for crafting the interface with a clean and elegant touch.
 
 ---
