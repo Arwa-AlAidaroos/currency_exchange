@@ -63,4 +63,11 @@ node server.js
 
 5. Open your browser and visit:
 
-http://localhost:5000l, feel free to ⭐ the repository or connect with me!
+http://localhost:5000l
+
+
+## 🔐 Backend Implementation
+
+The backend works as a proxy between the frontend and ExchangeRate-API.
+
+Instead of exposing the API key in the frontend, the server handles API requests securely:
