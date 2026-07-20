@@ -6,7 +6,7 @@ This project includes a frontend interface and a Node.js + Express backend serve
 
 ## 📸 Preview
 
-![Currency Exchange App Screenshot](screenshot.png)
+(screenshot.png)
 
 ## 🌐 Features
 
