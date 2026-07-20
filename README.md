@@ -46,20 +46,21 @@ This project includes a frontend interface and a Node.js + Express backend serve
 1. Clone the repository:
 
 ```bash
-git clone (https://github.com/Arwa-AlAidaroos/currency_exchange)
-cd currency-exchange
-Install dependencies:
+git clone (https://github.com/Arwa-AlAidaroos/currency_exchange)...
+cd currency-exchange...
+2. Install dependencies:
 npm install
-Create a .env file in the project root and add your API key:
+3. Create a .env file in the project root and add your API key:
 API_KEY=your_exchange_rate_api_key_here
-Start the backend server:
+4.Start the backend server:
 node server.js
-Open your browser and visit:
+5. Open your browser and visit:
 http://localhost:5000
-🔐 Backend Implementation
+
+## 🔐 Backend Implementation
+
 
 The backend works as a proxy between the frontend and ExchangeRate-API.
-
 Instead of exposing the API key in the frontend, the server handles API requests securely:
 
 app.get('/exchange/:fromCurr', async (req, res) => {
@@ -74,7 +75,9 @@ app.get('/exchange/:fromCurr', async (req, res) => {
 
 The API key is stored securely in a .env file and is not exposed to users.
 
-📦 Folder Structure
+## 📦 Folder Structure
+
+
 currency-exchange/
 │
 ├── public/
@@ -88,7 +91,9 @@ currency-exchange/
 ├── screenshot.png
 ├── .env (not uploaded)
 └── README.md
-⚠️ Notes
+
+## ⚠️ Notes
+
 
 Do not upload:
 
@@ -97,7 +102,8 @@ node_modules/
 
 Make sure they are included in .gitignore.
 
-🙏 Credits
+## 🙏 Credits
+
 
 UI Design Concept:
 
@@ -105,7 +111,8 @@ The interface concept was designed by my sister, and I implemented the design us
 
 Special thanks to her for creating the clean and elegant visual direction.
 
-📬 Contact
+##📬 Contact
+
 
 Built by Arwa AlAidaroos
 
