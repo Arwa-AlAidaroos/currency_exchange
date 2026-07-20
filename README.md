@@ -6,7 +6,7 @@ This project includes a frontend interface and a Node.js + Express backend serve
 
 ## 📸 Preview
 
-Screenshot.png
+<img src="./Screenshot.png" width="700">
 
 ## 🌐 Features
 
