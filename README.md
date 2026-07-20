@@ -28,56 +28,53 @@ This project includes a frontend interface and a Node.js + Express backend serve
 ## 🏗️ Architecture
 
 ### Frontend
+
 - Provides the user interface for currency conversion
 - Sends requests to the backend server
-- Displays exchange rate results to users
+- Displays exchange rate results
 
 ### Backend
+
 - Built with Node.js and Express
 - Receives requests from the frontend
 - Communicates with ExchangeRate-API
-- Keeps the API key hidden using environment variables (`.env`)
-- Returns exchange rate data securely to the frontend
+- Keeps the API key hidden using `.env`
+- Returns exchange rate data securely
 
 ## 🚀 How to Run Locally
 
-### 1. Clone the repository
+1. Clone the repository:
 
 ```bash
 git clone (https://github.com/Arwa-AlAidaroos/currency_exchange)
 cd currency-exchange
-
-2. Install dependencies
+Install dependencies:
 npm install
-
-3. Create a .env file
 Create a .env file in the project root and add your API key:
 API_KEY=your_exchange_rate_api_key_here
-
-4. Start the backend server
+Start the backend server:
 node server.js
-
-5. Open your browser
-Visit:
+Open your browser and visit:
 http://localhost:5000
-
 🔐 Backend Implementation
 
 The backend works as a proxy between the frontend and ExchangeRate-API.
-Instead of exposing the API key in the frontend, the server handles the API request securely:
+
+Instead of exposing the API key in the frontend, the server handles API requests securely:
 
 app.get('/exchange/:fromCurr', async (req, res) => {
   const fromCurr = req.params.fromCurr.toUpperCase();
+
   const response = await axios.get(
     `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurr}`
   );
+
   res.json(response.data.conversion_rates);
 });
 
 The API key is stored securely in a .env file and is not exposed to users.
 
 📦 Folder Structure
-
 currency-exchange/
 │
 ├── public/
@@ -88,10 +85,11 @@ currency-exchange/
 ├── server.js
 ├── package.json
 ├── package-lock.json
+├── screenshot.png
 ├── .env (not uploaded)
 └── README.md
+⚠️ Notes
 
-Notes
 Do not upload:
 
 .env
@@ -102,6 +100,7 @@ Make sure they are included in .gitignore.
 🙏 Credits
 
 UI Design Concept:
+
 The interface concept was designed by my sister, and I implemented the design using HTML, CSS, and JavaScript.
 
 Special thanks to her for creating the clean and elegant visual direction.
