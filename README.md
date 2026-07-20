@@ -4,6 +4,10 @@ A web application that allows users to convert currencies using real-time exchan
 
 This project includes a frontend interface and a Node.js + Express backend server that securely handles API requests without exposing the API key.
 
+## 📸 Preview
+
+![Currency Exchange App Screenshot](./screenshot.png)
+
 ## 🌐 Features
 
 - Real-time currency conversion
@@ -40,7 +44,7 @@ This project includes a frontend interface and a Node.js + Express backend serve
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/currency-exchange.git
+git clone (https://github.com/Arwa-AlAidaroos/currency_exchange)
 cd currency-exchange
 
 2. Install dependencies
