@@ -45,78 +45,22 @@ This project includes a frontend interface and a Node.js + Express backend serve
 
 1. Clone the repository:
 
-```bash
-git clone (https://github.com/Arwa-AlAidaroos/currency_exchange)...
-cd currency-exchange...
+git clone https://github.com/Arwa-AlAidaroos/currency_exchange.git
+
+cd currency_exchange
+
 2. Install dependencies:
+
 npm install
-3. Create a .env file in the project root and add your API key:
+
+3. Create a `.env` file in the project root and add your API key:
+
 API_KEY=your_exchange_rate_api_key_here
-4.Start the backend server:
+
+4. Start the backend server:
+
 node server.js
+
 5. Open your browser and visit:
-http://localhost:5000
 
-## 🔐 Backend Implementation
-
-
-The backend works as a proxy between the frontend and ExchangeRate-API.
-Instead of exposing the API key in the frontend, the server handles API requests securely:
-
-app.get('/exchange/:fromCurr', async (req, res) => {
-  const fromCurr = req.params.fromCurr.toUpperCase();
-
-  const response = await axios.get(
-    `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurr}`
-  );
-
-  res.json(response.data.conversion_rates);
-});
-
-The API key is stored securely in a .env file and is not exposed to users.
-
-## 📦 Folder Structure
-
-
-currency-exchange/
-│
-├── public/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── server.js
-├── package.json
-├── package-lock.json
-├── screenshot.png
-├── .env (not uploaded)
-└── README.md
-
-## ⚠️ Notes
-
-
-Do not upload:
-
-.env
-node_modules/
-
-Make sure they are included in .gitignore.
-
-## 🙏 Credits
-
-
-UI Design Concept:
-
-The interface concept was designed by my sister, and I implemented the design using HTML, CSS, and JavaScript.
-
-Special thanks to her for creating the clean and elegant visual direction.
-
-##📬 Contact
-
-
-Built by Arwa AlAidaroos
-
-GitHub:
-https://github.com/Arwa-AlAidaroos
-
-If you find this project useful, feel free to ⭐ the repository or connect with me!
+http://localhost:5000l, feel free to ⭐ the repository or connect with me!
