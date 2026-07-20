@@ -1,6 +1,6 @@
 require('dotenv').config();
 const apiKey = process.env.API_KEY;
-console.log("API Key:", process.env.API_KEY);
+
 
 const express = require('express');
 const cors = require('cors');
