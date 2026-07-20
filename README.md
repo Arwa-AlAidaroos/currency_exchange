@@ -1,91 +1,112 @@
 # 💱 Currency Exchange App
 
-A full-stack web application that allows users to convert currencies using real-time exchange rates.
+A web application that allows users to convert currencies using real-time exchange rates.
 
-This project includes both frontend and backend components:
-- **Frontend:** HTML, CSS, and JavaScript (inside `public/` folder)
-- **Backend:** Node.js + Express server that securely handles API requests without exposing the API key
-
----
+This project includes a frontend interface and a Node.js + Express backend server that securely handles API requests without exposing the API key.
 
 ## 🌐 Features
 
 - Real-time currency conversion
-- Backend hides the API key using `.env` file
+- Supports multiple currencies
+- Backend proxy to protect the API key
 - Clean and user-friendly interface
-- Responsive and simple design
-
----
+- Responsive design for different screen sizes
 
 ## 🛠️ Tech Stack
 
-| Layer     | Technology               |
-|-----------|--------------------------|
-| Frontend  | HTML, CSS, JavaScript    |
-| Backend   | Node.js, Express         |
-| API       | [ExchangeRate-API](https://www.exchangerate-api.com/) |
+| Layer | Technology |
+|---|---|
+| Frontend | HTML, CSS, JavaScript |
+| Backend | Node.js, Express |
+| HTTP Client | Axios |
+| API | ExchangeRate-API |
 
----
+## 🏗️ Architecture
+
+### Frontend
+- Provides the user interface for currency conversion
+- Sends requests to the backend server
+- Displays exchange rate results to users
+
+### Backend
+- Built with Node.js and Express
+- Receives requests from the frontend
+- Communicates with ExchangeRate-API
+- Keeps the API key hidden using environment variables (`.env`)
+- Returns exchange rate data securely to the frontend
 
 ## 🚀 How to Run Locally
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/currency-exchange.git
-   cd currency-exchange
-2. Install dependencies:
-   npm install
-3. Create a .env file in the root directory and add your API key:
-   API_KEY=your_exchange_rate_api_key_here
-4. Start the backend server:
-   node server.js
-5. Open your browser and navigate to:
-   http://localhost:5000
+### 1. Clone the repository
 
-🔐 About the Backend
-This project uses Node.js to run a simple Express server. The server acts as a proxy between the frontend and the external API, ensuring that the API key remains hidden from users.
+```bash
+git clone https://github.com/your-username/currency-exchange.git
+cd currency-exchange
 
-Example of how the server works:
+2. Install dependencies
+npm install
 
-app.get('/api/rates', async (req, res) => {
-    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
-    const response = await fetch(url);
-    const data = await response.json();
-    res.json(data);
+3. Create a .env file
+Create a .env file in the project root and add your API key:
+API_KEY=your_exchange_rate_api_key_here
+
+4. Start the backend server
+node server.js
+
+5. Open your browser
+Visit:
+http://localhost:5000
+
+🔐 Backend Implementation
+
+The backend works as a proxy between the frontend and ExchangeRate-API.
+Instead of exposing the API key in the frontend, the server handles the API request securely:
+
+app.get('/exchange/:fromCurr', async (req, res) => {
+  const fromCurr = req.params.fromCurr.toUpperCase();
+  const response = await axios.get(
+    `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurr}`
+  );
+  res.json(response.data.conversion_rates);
 });
 
-The API key is stored securely in a .env file.
-
-The frontend makes requests to /api/rates instead of directly to the API.
+The API key is stored securely in a .env file and is not exposed to users.
 
 📦 Folder Structure
 
 currency-exchange/
-├── public/             # Frontend files
-├── server.js           # Backend server
-├── .env                # (not uploaded) contains API key
+│
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── server.js
 ├── package.json
 ├── package-lock.json
+├── .env (not uploaded)
 └── README.md
 
-⚠️ Notes
-Do NOT upload .env or node_modules folders to GitHub.
+Notes
+Do not upload:
 
-Make sure your .gitignore file includes:
 .env
 node_modules/
 
----
+Make sure they are included in .gitignore.
 
-## 🙏 Credits
+🙏 Credits
 
-- **Frontend UI Design:** Created by my talented sister ✨
-- Connect with her on [LinkedIn](https://eg.linkedin.com/in/shefaa-mohd-90a6172a7) 💛
-  Huge thanks to her for crafting the interface with a clean and elegant touch.
+UI Design Concept:
+The interface concept was designed by my sister, and I implemented the design using HTML, CSS, and JavaScript.
 
----
+Special thanks to her for creating the clean and elegant visual direction.
 
-## 📬 Contact
+📬 Contact
 
-Built with 💻 by Arwa AlAidaroos 
-If you find this project useful, feel free to ⭐ the repo or connect with me!
+Built by Arwa AlAidaroos
+
+GitHub:
+https://github.com/Arwa-AlAidaroos
+
+If you find this project useful, feel free to ⭐ the repository or connect with me!
