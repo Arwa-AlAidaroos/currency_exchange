@@ -44,30 +44,98 @@ This project includes a frontend interface and a Node.js + Express backend serve
 ## 🚀 How to Run Locally
 
 1. Clone the repository:
-
+   
+```bash
 git clone https://github.com/Arwa-AlAidaroos/currency_exchange.git
-
 cd currency_exchange
+```
 
 2. Install dependencies:
 
+```bash
 npm install
+```
 
 3. Create a `.env` file in the project root and add your API key:
 
+```env
 API_KEY=your_exchange_rate_api_key_here
+```
 
 4. Start the backend server:
 
+```bash
 node server.js
+```
 
 5. Open your browser and visit:
 
+```text
 http://localhost:5000l
+```
 
 
 ## 🔐 Backend Implementation
 
 The backend works as a proxy between the frontend and ExchangeRate-API.
-
 Instead of exposing the API key in the frontend, the server handles API requests securely:
+
+```javascript
+app.get('/exchange/:fromCurr', async (req, res) => {
+  const fromCurr = req.params.fromCurr.toUpperCase();
+
+  const response = await axios.get(
+    `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurr}`
+  );
+
+  res.json(response.data.conversion_rates);
+});
+```
+
+The API key is stored securely in a `.env` file and is not exposed to users.
+
+## 📦 Folder Structure
+
+```text
+currency-exchange/
+│
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── server.js
+├── package.json
+├── package-lock.json
+├── screenshot.png
+├── .env (not uploaded)
+└── README.md
+```
+
+## ⚠️ Notes
+
+Do not upload:
+
+```text
+.env
+node_modules/
+```
+
+Make sure they are included in your `.gitignore` file.
+
+## 🙏 Credits
+
+### UI Design
+
+The interface concept was designed by my sister, and I implemented the design using HTML, CSS, and JavaScript.
+Special thanks to her for creating the clean and elegant visual direction.
+
+## 📬 Contact
+
+Built with 💻 by **Arwa AlAidaroos**
+
+- GitHub: https://github.com/Arwa-AlAidaroos
+- LinkedIn: https://www.linkedin.com/in/arwa-alaidaroos-a02b60174/
+If you find this project useful, feel free to ⭐ the repository or connect with me!
+
+
